@@ -22,7 +22,10 @@ pygame.init()
 
 # generate window's game
 pygame.display.set_caption("labyrinth Game")
-screen = pygame.display.set_mode((645, 645))
+resolution = [645, 645]
+screen = pygame.display.set_mode([resolution[0], resolution[1]])
+coeff_screen = [15]
+scall_screen = [resolution[0] // coeff_screen[0], resolution[1] // coeff_screen[0]]
 
 # Import Background's picture
 background = pygame.image.load('macgyver_ressources/ressource/RDL_FDC.jpeg')
@@ -39,12 +42,15 @@ Guardian = pygame.image.load('macgyver_ressources/ressource/Gardien.png')
 # Import Lose picture
 lose = pygame.image.load('macgyver_ressources/ressource/loser.PNG')
 
+# Import Victory picture
+Victory = pygame.image.load('macgyver_ressources/ressource/victoire.JPG')
+
 from find import Find
 
 check_gard = Find()
 for GUARD in check_gard.search('S'):
-    GUARD[0] = GUARD[0] * 43
-    GUARD[1] = GUARD[1] * 43
+    GUARD[0] = GUARD[0] * scall_screen[0]
+    GUARD[1] = GUARD[1] * scall_screen[1]
 
 # Import wall position
 check_wall = Find()
@@ -66,22 +72,22 @@ while running:
 
     # Wall picture
     for WALL in check_wall.search('M'):
-        WALL[0] = WALL[0] * 43
-        WALL[1] = WALL[1] * 43
+        WALL[0] = WALL[0] * scall_screen[0]
+        WALL[1] = WALL[1] * scall_screen[1]
         screen.blit(wall, ((WALL[0]), (WALL[1])))
 
     # Way picture
     for WAY in check_way.search('C'):
-        WAY[0] = WAY[0] * 43
-        WAY[1] = WAY[1] * 43
+        WAY[0] = WAY[0] * scall_screen[0]
+        WAY[1] = WAY[1] * scall_screen[1]
         screen.blit(way, ((WAY[0]), (WAY[1])))
     for WAY in check_way.search('D'):
-        WAY[0] = WAY[0] * 43
-        WAY[1] = WAY[1] * 43
+        WAY[0] = WAY[0] * scall_screen[0]
+        WAY[1] = WAY[1] * scall_screen[1]
         screen.blit(way, ((WAY[0]), (WAY[1])))
     for WAY in check_way.search('S'):
-        WAY[0] = WAY[0] * 43
-        WAY[1] = WAY[1] * 43
+        WAY[0] = WAY[0] * scall_screen[0]
+        WAY[1] = WAY[1] * scall_screen[1]
         screen.blit(way, ((WAY[0]), (WAY[1])))
 
     # Guardian position
@@ -105,39 +111,43 @@ while running:
             if event.key == pygame.K_RIGHT:
                 game.player.move_right()
                 for WALL in check_wall.search('M'):
-                    WALL[0] = WALL[0] * 43
-                    WALL[1] = WALL[1] * 43
+                    WALL[0] = WALL[0] * scall_screen[0]
+                    WALL[1] = WALL[1] * scall_screen[1]
                     Check_P = [game.player.rect.x, game.player.rect.y]
                     if Check_P == WALL:
                         game.player.move_left()
-                        print('LOSER')
+                        running = True
             if event.key == pygame.K_LEFT:
                 game.player.move_left()
                 for WALL in check_wall.search('M'):
-                    WALL[0] = WALL[0] * 43
-                    WALL[1] = WALL[1] * 43
+                    WALL[0] = WALL[0] * scall_screen[0]
+                    WALL[1] = WALL[1] * scall_screen[1]
                     Check_P = [game.player.rect.x, game.player.rect.y]
                     if Check_P == WALL:
-                        print('LOSER')
                         game.player.move_right()
-                        running = False
+                        running = True
             if event.key == pygame.K_UP:
                 game.player.move_up()
                 for WALL in check_wall.search('M'):
-                    WALL[0] = WALL[0] * 43
-                    WALL[1] = WALL[1] * 43
+                    WALL[0] = WALL[0] * scall_screen[0]
+                    WALL[1] = WALL[1] * scall_screen[1]
                     Check_P = [game.player.rect.x, game.player.rect.y]
                     if Check_P == WALL:
-                        print('LOSER')
                         game.player.move_down()
-                        running = False
+                        running = True
             if event.key == pygame.K_DOWN:
                 game.player.move_down()
                 for WALL in check_wall.search('M'):
-                    WALL[0] = WALL[0] * 43
-                    WALL[1] = WALL[1] * 43
+                    WALL[0] = WALL[0] * scall_screen[0]
+                    WALL[1] = WALL[1] * scall_screen[1]
                     Check_P = [game.player.rect.x, game.player.rect.y]
                     if Check_P == WALL:
-                        print('LOSER')
                         game.player.move_up()
-                        running = False
+                        running = True
+        Check_P = [game.player.rect.x, game.player.rect.y]
+        if Check_P == GUARD:
+            print('YOU WIN')
+            import time
+            time.sleep(1)
+            running = False
+            pygame.quit()

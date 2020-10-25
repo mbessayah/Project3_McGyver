@@ -13,14 +13,15 @@ for l_MAC in check_mac.search('D'):
 class Player(pygame.sprite.Sprite):
 
     def __init__(self):
+        from main import scall_screen
         super().__init__()
         self.health = 100
         self.max_health = 100
         self.image = pygame.image.load('macgyver_ressources/ressource/MacGyver.png')
         self.rect = self.image.get_rect()
-        self.rect.x = (MAC[0] * 43)
-        self.rect.y = (MAC[1] * 43)
-        self.velocity = 43
+        self.rect.x = (MAC[0] * scall_screen[0])
+        self.rect.y = (MAC[1] * scall_screen[1])
+        self.velocity = scall_screen[0]
 
     def move_right(self):
         self.rect.x += self.velocity
