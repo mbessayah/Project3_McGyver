@@ -39,6 +39,11 @@ way = pygame.image.load('macgyver_ressources/ressource/tiles-medium.png')
 # Import Guardian
 Guardian = pygame.image.load('macgyver_ressources/ressource/Gardien.png')
 
+from spawn_items import Spawn_Items
+
+# Import Aiguille
+Aiguille_pict = pygame.image.load('macgyver_ressources/ressource/aiguille.PNG')
+
 # Import Lose picture
 lose = pygame.image.load('macgyver_ressources/ressource/loser.PNG')
 
@@ -95,6 +100,9 @@ while running:
 
     # Player's picture
     screen.blit(game.player.image, game.player.rect)
+
+    # Aiguille position
+    screen.blit(Aiguille_pict, Spawn_Items.aiguille)
 
     # MAJ screen
     pygame.display.flip()

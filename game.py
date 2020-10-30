@@ -4,7 +4,6 @@
 import pygame
 
 from player import Player
-from find import Find
 
 
 # Game's Class
