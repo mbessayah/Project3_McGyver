@@ -5,7 +5,6 @@ import pygame
 
 from player import Player
 
-
 # Game's Class
 class Game:
 

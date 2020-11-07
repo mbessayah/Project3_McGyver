@@ -3,10 +3,10 @@
 
 
 class Labymap:
-    """  """
+    """ Transform and exploit txt files """
 
     def upload_file(self, req):
-        """  """
+        """ Check files """
         lines = []
         # READ FILE LABYRINTH
         FILE = req
@@ -19,7 +19,7 @@ class Labymap:
         return lines
 
     def create_lab(self):
-        """  """
+        """ make list """
         lab = []
         req = self.upload_file('labyrinth.txt')
         LABYRINTH = []
@@ -29,10 +29,6 @@ class Labymap:
         for el_lab in lab:
             LABYRINTH.append(list(el_lab))
         return LABYRINTH
-
-    def lab_gen(self):
-        """  """
-        pass
 
     def show_laby(self):
         labyrinth = self.create_lab()

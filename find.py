@@ -8,7 +8,7 @@ labyrinth = Labymap()
 
 
 class Find:
-    """  """
+    """ Exploit to find specific letter """
 
     def search(self, letter):
         l_search = []
@@ -19,8 +19,3 @@ class Find:
                 if req == letter:
                     l_search.append([x, y])
         return l_search
-
-"""def def_struct(self):
-    wall = self.search('M')
-    way = self.search('C')
-    return wall, way"""
