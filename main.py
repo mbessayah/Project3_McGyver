@@ -56,10 +56,14 @@ Syringe_pict = pygame.image.load('macgyver_ressources/ressource/seringue.PNG')
 Syringe_pict = pygame.transform.scale(Syringe_pict, (scall_screen[0], scall_screen[1]))
 
 # Import Lose picture
-Lose = pygame.image.load('macgyver_ressources/ressource/loser.PNG')
+Lose = pygame.image.load('macgyver_ressources/ressource/lose.JPG')
+Lose = pygame.transform.scale(Lose, (resolution[0], resolution[1]))
+Lose_song = pygame.mixer.Sound("macgyver_ressources/ressource/Lose.ogg")
 
 # Import Victory picture
-Win = pygame.image.load('macgyver_ressources/ressource/victoire.JPG')
+Win = pygame.image.load('macgyver_ressources/ressource/Victoire.PNG')
+Win = pygame.transform.scale(Win, (resolution[0], resolution[1]))
+Win_song = pygame.mixer.Sound("macgyver_ressources/ressource/Win.ogg")
 
 from find import Find
 
@@ -135,7 +139,6 @@ while running:
         Needle_pict = way
         count_object[0] = ["N"]
 
-
     for PLA in Pla.search('P'):
         PLA[0] = PLA[0] * scall_screen[0]
         PLA[1] = PLA[1] * scall_screen[1]
@@ -146,7 +149,6 @@ while running:
         plastic_tube_pict_int = way
         count_object[1] = ["S"]
 
-
     for ETH in Eth.search('G'):
         ETH[0] = ETH[0] * scall_screen[0]
         ETH[1] = ETH[1] * scall_screen[1]
@@ -155,7 +157,6 @@ while running:
     if SpawnItems.ether == Check_P:
         Ether_pict = way
         count_object[2] = ["E"]
-
 
     # Player's picture
     screen.blit(game.player.image, game.player.rect)
@@ -166,7 +167,7 @@ while running:
     if count_object == [['N'], ['S'], ['E']]:
         plastic_tube_pict_int = Syringe_pict
 
-    # player close the window
+    # player action
     for event in pygame.event.get():
         # if event closed the window
         if event.type == pygame.QUIT:
@@ -216,14 +217,18 @@ while running:
             if count_object == [["N"], ["S"], ["E"]]:
                 print('YOU WIN')
                 screen.blit(Win, (0, 0))
+                pygame.display.update()
+                Win_song.play(0, 0, 5000)
                 import time
-                time.sleep(2)
+                time.sleep(7)
                 running = False
                 pygame.quit()
             else:
                 print("YOU LOSE")
                 screen.blit(Lose, (0, 0))
+                pygame.display.update()
+                Lose_song.play(0, 0, 5000)
                 import time
-                time.sleep(2)
+                time.sleep(7)
                 running = False
                 pygame.quit()

@@ -20,4 +20,3 @@ class SpawnItems:
     plastic_tube = [Check_Items[1][0] * 43, Check_Items[1][1] * 43]
     ether = [Check_Items[2][0] * 43, Check_Items[2][1] * 43]
 
-

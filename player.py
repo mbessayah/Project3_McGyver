@@ -34,3 +34,4 @@ class Player(pygame.sprite.Sprite):
 
     def move_down(self):
         self.rect.y += self.velocity
+
