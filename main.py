@@ -219,6 +219,7 @@ while running:
                 screen.blit(Win, (0, 0))
                 pygame.display.update()
                 Win_song.play(0, 0, 5000)
+                Win_song.set_volume(0.1)
                 import time
                 time.sleep(7)
                 running = False
@@ -228,6 +229,7 @@ while running:
                 screen.blit(Lose, (0, 0))
                 pygame.display.update()
                 Lose_song.play(0, 0, 5000)
+                Lose_song.set_volume(0.1)
                 import time
                 time.sleep(7)
                 running = False
