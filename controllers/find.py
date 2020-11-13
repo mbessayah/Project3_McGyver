@@ -1,16 +1,19 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+""" Exploit list to find letter """
 
-from labymap import Labymap
+from views.labymap import Labymap
 
 labyrinth = Labymap()
 
 
 class Find:
+
     """ Exploit to find specific letter """
 
-    def search(self, letter):
+    @staticmethod
+    def search(letter):
         l_search = []
         lab = labyrinth.create_lab()
         for chn in lab:
