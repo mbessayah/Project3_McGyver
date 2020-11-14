@@ -4,6 +4,7 @@
 """ Attribute picture for object """
 
 import pygame
+pygame.init()
 from views.screen import Screen
 
 
