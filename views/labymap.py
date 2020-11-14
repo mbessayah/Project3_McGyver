@@ -18,7 +18,7 @@ class Labymap:
             with open(file, 'r') as f:
                 for el_f in f.readlines():
                     lines.append(el_f.strip('\n'))
-        except:
+        except NameError:
             print("No files founded")
         return lines
 

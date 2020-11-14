@@ -19,6 +19,9 @@ class SpawnItems:
     for aleatory in range(1):
         Check_Items = (random.sample(spawn_items, 3))
 
-        needle = [Check_Items[0][0] * Screen.scall_screen[0], Check_Items[0][1] * Screen.scall_screen[1]]
-        plastic_tube = [Check_Items[1][0] * Screen.scall_screen[0], Check_Items[1][1] * Screen.scall_screen[1]]
-        ether = [Check_Items[2][0] * Screen.scall_screen[0], Check_Items[2][1] * Screen.scall_screen[1]]
+        needle = [Check_Items[0][0] * Screen.scall_screen[0],
+                  Check_Items[0][1] * Screen.scall_screen[1]]
+        plastic_tube = [Check_Items[1][0] * Screen.scall_screen[0],
+                        Check_Items[1][1] * Screen.scall_screen[1]]
+        ether = [Check_Items[2][0] * Screen.scall_screen[0],
+                 Check_Items[2][1] * Screen.scall_screen[1]]

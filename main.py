@@ -181,14 +181,14 @@ while running:
                 PictureSong.Win_song.set_volume(0.1)
                 import time
 
-                time.sleep(7)
+                time.sleep(10)
                 running = False
                 pygame.quit()
             else:
                 Screen.screen.blit(PictureSong.Lose, (0, 0))
                 pygame.display.update()
                 PictureSong.Game_song.stop()
-                PictureSong.Lose_song.play(0, 0, 5000)
+                PictureSong.Lose_song.play(0, 0, 1000)
                 PictureSong.Lose_song.set_volume(0.1)
                 import time
 
