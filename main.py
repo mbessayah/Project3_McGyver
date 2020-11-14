@@ -174,7 +174,7 @@ if __name__ == '__main__':
                     PictureSong.Win_song.set_volume(0.1)
                     import time
 
-                    time.sleep(10)
+                    time.sleep(4)
                     running = False
                     pygame.quit()
                 else:
