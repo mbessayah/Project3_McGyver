@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+""" Set the player settings """
 import pygame
 
 from controllers.find import Find
@@ -8,9 +8,6 @@ from controllers.find import Find
 check_mac = Find()
 for l_MAC in check_mac.search('D'):
     MAC = l_MAC
-
-
-# Player's Class
 
 
 class Player(pygame.sprite.Sprite):
