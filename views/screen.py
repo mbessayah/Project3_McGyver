@@ -1,10 +1,13 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+""" Parameters of screen """
+
 import pygame
 
 
 class Screen:
+    """ use the resolution to assign a divisor coefficient """
 
     # generate window's game
 
@@ -14,8 +17,3 @@ class Screen:
     coeff_screen = [15, 18]
     scall_screen = [
         resolution[0] // coeff_screen[0], resolution[1] // coeff_screen[1]]
-
-    # Import Background's picture
-
-    background = pygame.image.load(
-        'macgyver_ressources/ressource/RDL_FDC.jpeg')

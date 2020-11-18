@@ -1,22 +1,18 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Control interaction """
+""" Define position of guardian """
 
-from controllers.player import Player
+from controllers.find import Find
+from views.screen import Screen
 
 # Game's Class
 
 
-class Game:
+class Guardian:
+    """ Define position of guard """
 
-    from controllers.find import Find
-    from views.screen import Screen
     check_gard = Find()
     for GUARD in check_gard.search('S'):
         GUARD[0] = (GUARD[0] * Screen.scall_screen[0])
         GUARD[1] = (GUARD[1] * Screen.scall_screen[1])
-
-    def __init__(self):
-        # generate player
-        self.player = Player()

@@ -4,11 +4,14 @@
 """ Attribute picture for object """
 
 import pygame
-pygame.init()
+
 from views.screen import Screen
+
+pygame.init()
 
 
 class PictureSong:
+    """ Attribute pictures or songs """
 
     # Song Game
     Game_song = pygame.mixer.Sound("macgyver_ressources/ressource/8bitmcg.ogg")
