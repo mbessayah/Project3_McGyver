@@ -17,5 +17,5 @@ C : The way"""
 from controllers import console
 
 if __name__ == '__main__':
-    aaa = console.Console()
-    aaa.start_laby()
+    console = console.Console()
+    console.start_laby()
